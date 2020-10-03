@@ -1,0 +1,2 @@
+Welcome to my Git tutorial.
+Today we will learn how to get started with Git.
