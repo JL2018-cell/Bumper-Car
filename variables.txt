@@ -1,0 +1,5 @@
+
+double Pos1[2]; //Position of player 1, in terms of corrdinate system on screen.
+
+double Pos2[2]; //Position of player 2, in terms of corrdinate system on screen.
+
