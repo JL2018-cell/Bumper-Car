@@ -8,6 +8,10 @@ Game:
 2. Vertical Gomoku/Five in a Row: place your pieces such that your 5 pieces form a straight line/verical line.
 Game Description:
 
+Game Description:
+
+Rules:
+
 Features of the game:
 
 
