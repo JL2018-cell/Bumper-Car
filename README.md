@@ -13,5 +13,10 @@ Game Description:
 Rules:
 
 Features of the game:
-
-
+1. Generation of random game sets or events: _________________
+2. Data structures for storing game status: _________________
+3. Dynamic memory management: _________________
+4. File input/output (e.g., for loading/saving game status): _________________
+5. Program codes in multiple files: _________________
+6. Proper indentation and naming styles: _________________
+7. In-code documentation: _________________
