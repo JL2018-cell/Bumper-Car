@@ -3,7 +3,7 @@ Group members:
 Lin Jianan
 Teng Changqing 3035534402
 
-Bumper cars 
+**Bumper cars**
  
 **Game description** 
 
@@ -23,6 +23,7 @@ A text-based game that user is required to bump the target out of the arena by s
 - The result of each time of game will be saved. Player could input "Progress" or "P" to check how many times he/she has won or lost at the current stage 
  
 ***Win or lose***
+
 *There will be 3 possible outcomes for each time of game*
 - "P" does not hit "T", which is regarded as *lose*
 - "P" hits "T" but does not bump it out of the arena( both "P" and "T" are in the arena finally) or "P" hits "T" but "P" itself moves out of  the arena ( both "P" and "T" are out of the arena finally), both cases are regarded as *lose*
