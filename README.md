@@ -1,5 +1,6 @@
 # COMP2113-Group-Project
 Group members:
+
 Lin Jianan
 Teng Changqing 3035534402
 
@@ -51,8 +52,8 @@ A text-based game that user is required to bump the target out of the arena by s
 *There will be three different levels for each round of game*
 
 - "Easy": we assume that μ=0 and the collision is perfectly elastic collision (i.e. e=1), then by rules of conservation of momentum and conservation of energy, v1=v0, v2=0, v3=v1. It follows that as long as the direction is correct, no matter what v0 is, the play will win this time of game. The codes will only check for the direction.
-- "Medium: we assume that μ=0.4 and the collision is perfectly elastic collision (i.e. e=1), then by rules of conservation of momentum and conservation of energy, mg(v1)^2/2 = mg(v0)^2/2-μmgd1, v2=0, v3=v1. The codes will first check the direction, if true, then check whether “P” hits “T” (i.e. mg(v0)^2/2 > μmgd1), if true, finally check whether “T” will be bumped out of the arena(i.e. mg(v3)^2>umgd2)
-- “Difficult”: we assume that μ=0.4 and the collision is inelastic collision(we assume e=0.5 if the texture of the points is wood), then by rules of conservation of momentum and conservation of energy, mg(v1)^2/2 = mg(v0)^2/2-μmgd1, v2=(v1)/4, v3=3(v1)/4. The codes will first check the direction, if true, the check whether “P” hits “T”(i.e. mg(v0)^2/2 > μmgd1), if true, finally check whether “T” will be bumped out of the arena while “P” remains in the arena(i.e. mg(v3)^2>umgd2 and mg(v2)^2<=umgd2) 
+- "Medium: we assume that μ=0.4 and the collision is perfectly elastic collision (i.e. e=1), then by rules of conservation of momentum and conservation of energy, mg(v1)^2/2 = mg(v0)^2/2-μmgd1, v2=0, v3=v1. The codes will first check the direction, if true, then check whether “P” hits “T” (i.e. mg(v0)^2/2 > μmgd1), if true, finally check whether “T” will be bumped out of the arena(i.e. mg(v3)^2>μmgd2)
+- “Difficult”: we assume that μ=0.4 and the collision is inelastic collision(we assume e=0.5 if the texture of the points is wood), then by rules of conservation of momentum and conservation of energy, mg(v1)^2/2 = mg(v0)^2/2-μmgd1, v2=(v1)/4, v3=3(v1)/4. The codes will first check the direction, if true, the check whether “P” hits “T”(i.e. mg(v0)^2/2 > μmgd1), if true, finally check whether “T” will be bumped out of the arena while “P” remains in the arena(i.e. mg(v3)^2>umgd2 and mg(v2)^2<=μmgd2) 
 
 **System Command**
 - "Save": save the file containing the current game status 
@@ -62,10 +63,18 @@ A text-based game that user is required to bump the target out of the arena by s
 - "Help": get the useful information about how to play the game 
 
 **Features implemented**
-- Generation of random game sets or events: the start position of "P" and "T"
+- Generation of random game sets or events
+
+a random number generator function will generate the starting coordinates of "P" and "T"
 - Data structures for storing game status
-- Dynamic memory management: round of game 
-- File input/output (e.g., for loading/saving game status): "Save" and "Restore" command 
+
+a dynamic 2D array will be employed to store the game progress(how many times of wins and loses) and status(the starting position of “P” and "T" of the last time of game that has not yet completed)
+- Dynamic memory management
+
+a dynamic 2D array will be employed to store the game progress and status. As the number of times played of each round is uncertain(can be at least 3 and at most 5), such array will store the number of wins and loses. When the round terminates, the variables in this array will return to zero.
+- File input/output (e.g., for loading/saving game status)
+
+
 - Program codes in multiple files
 
 
