@@ -1,7 +1,7 @@
 # COMP2113-Group-Project
 Group members:
 
-Lin Jianan
+Lin Jianan 3035577595
 Teng Changqing 3035534402
 
 **Bumper cars**
@@ -65,7 +65,7 @@ A text-based game that user is required to bump the target out of the arena by s
 **Features implemented**
 - Generation of random game sets or events
 
-a random number generator function will generate the starting coordinates of "P" and "T"
+a random number generator function will generate the starting coordinates of "P" and "T". Also, number of enemies is randomly generated between 1 and 3 inclusive.
 - Data structures for storing game status
 
 a dynamic 2D array will be employed to store the game progress(how many times of wins and loses) and status(the starting position of “P” and "T" of the last time of game that has not yet completed)
@@ -76,7 +76,7 @@ a dynamic 2D array will be employed to store the game progress and status. As th
 
 
 - Program codes in multiple files
-
+Different .cpp files are used to show status of points on screen, calculating result of collision, describing the flow of the game.
 
 
        
