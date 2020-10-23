@@ -74,8 +74,9 @@ a dynamic 2D array will be employed to store the game progress(how many times of
 a dynamic 2D array will be employed to store the game progress and status. As the number of times played of each round is uncertain(can be at least 3 and at most 5), such array will store the number of wins and loses. When the round terminates, the variables in this array will return to zero.
 - File input/output (e.g., for loading/saving game status)
 
-
+Progress of game is stored in "Temp.txt". When user execute file to play the game, he/she must include an argument: N (stand for New game) or L (stand for loaging game from previous status). If the argument is "N", then, "Temp.txt" will become an empty file through file IO. Otherwise, computer will read "Temp.txt" to load position of points and scores of player in the previous game.
 - Program codes in multiple files
+
 Different .cpp files are used to show status of points on screen, calculating result of collision, describing the flow of the game.
 
 
