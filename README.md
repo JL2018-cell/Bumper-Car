@@ -6,6 +6,7 @@ Teng Changqing 3035534402
 Bumper cars 
  
 **Game description** 
+
 A text-based game that user is required to bump the target out of the arena by setting the bumping direction and primary speed. 
  
 **Basics**
