@@ -10,9 +10,9 @@ Teng Changqing 3035534402
 
 A text-based game that user is required to bump the target out of the arena by setting the bumping direction and primary speed. 
  
-**Basics**
+**Game Basics**
 
-***Game setting***
+***Game Description***
 - There will be two points in the square arena. One is labelled by "P", which is controlled by the player. Another is labelled by "T", which is the target. For simplicity, we assume that these two points are mass points (i.e. their shape and size could be neglected for the bumping procedure) and have same mass. 
 - The two points' starting positions will be randomly selected for each time of game. 
 - The default direction is horizontally to the right. Player could set the direction by inputting "+ number" or "- number". E.g. "+ 90" means the direction will rotate counterclockwise by 90 degrees; "- 45" means the direction will rotate clockwise by 45 degrees. The number can be any integer from 0 to 360 (including the boundaries) Four degrees fault-tolerant interval is incorporated. 
