@@ -13,23 +13,28 @@ A text-based game that user is required to bump the target out of the arena by s
 **Game Basics**
 
 ***Game Description***
-- There will be two points in the square arena. One is labelled by "P", which is controlled by the player. Another is labelled by "T", which is the target. For simplicity, we assume that these two points are mass points (i.e. their shape and size could be neglected for the bumping procedure) and have same mass. 
-- The two points' starting positions will be randomly selected for each time of game. 
-- The default direction is horizontally to the right. Player could set the direction by inputting "+ number" or "- number". E.g. "+ 90" means the direction will rotate counterclockwise by 90 degrees; "- 45" means the direction will rotate clockwise by 45 degrees. The number can be any integer from 0 to 360 (including the boundaries) Four degrees fault-tolerant interval is incorporated. 
-- Player could set the primary speed by "a number", the number can be any integer from 1 to 10(including the boundaries)
+- There will be at least 2 points in the square arena. One is labelled by "P", which is controlled by the player. The other are labelled by "T", which are the targets. For simplicity, we assume that these points are mass points (i.e. their shape and size could be neglected for the bumping procedure) and have same mass. 
+- The points' starting positions will be randomly selected for each time of game. Besides, the number of "T" is random as well for each time of game, it can be 1 or 2. 
+- If the number of "T" is 2, after "P" bumped a "T", the starting position for "P" to bump another "T" will be randomly selected again
+- The default direction is horizontally to the right. Player could set the direction by inputting "+ *number*" or "- *number*". E.g. "+ 90" means the direction will rotate counterclockwise by 90 degrees; "- 45" means the direction will rotate clockwise by 45 degrees. The number can be any integer from 0 to 360 (including the boundaries) Four degrees fault-tolerant interval is incorporated. 
+- Player could set the primary speed by "a *number*", the number can be any integer from 1 to 10(including the boundaries)
 - Player could set the difficulty levels at the beginning of each round by input "Easy" or "Medium" or "Hard", which will be discussed in detail later
 - the movement of "P" and "T" and their final positions will be displayed by employing *text-based animation*
  
 ***Round***
-- For each round of game, player could play at most 5 times. If the player have won 3 times, he/she wins in this round and this round terminates. Else if the player have lost 3 times, he/she lost in this round and this round terminates. 
+- For each round of game, player could play at most 3 times. If the player have won 2 times, he/she wins in this round and this round terminates. Else if the player have lost 2 times, he/she lost in this round and this round terminates. 
 - The result of each time of game will be saved. Player could input "Progress" or "P" to check how many times he/she has won or lost at the current stage 
  
 ***Win or lose***
 
 *There will be 3 possible outcomes for each time of game*
+
+*If "T"'s number is 1"
 - "P" does not hit "T", which is regarded as *lose*
 - "P" hits "T" but does not bump it out of the arena( both "P" and "T" are in the arena finally) or "P" hits "T" but "P" itself moves out of  the arena ( both "P" and "T" are out of the arena finally), both cases are regarded as *lose*
 - "P" hits "T" and bumps it out of the arena while "P" remains in the arena, which is regarded as *win*
+*If "T"'s number is 2"
+-"P" hits both "T" and bumps them out of the arena and for both times "P" remains in the arena, which is regarded as *win*. Otherwise, it is regarded as *lose*
  
 ***Difficulty level***
 
@@ -57,24 +62,24 @@ A text-based game that user is required to bump the target out of the arena by s
 
 **System Command**
 - "Save": save the file containing the current game status 
-- "Restore": restore a saved game, return to the saved status
+- "Log": restore a saved game, return to the saved status
 - "Quit": end the game 
-- "Restart": start a new round  
+- "New": start a new round  
 - "Help": get the useful information about how to play the game 
 
 **Features implemented**
 - Generation of random game sets or events
 
-a random number generator function will generate the starting coordinates of "P" and "T". Also, number of enemies is randomly generated between 1 and 3 inclusive.
+a random number generator function will generate the starting coordinates of "P" and "T". Also, the number of "T" is randomly generated between 1 and 2 inclusive.
 - Data structures for storing game status
 
 a dynamic 2D array will be employed to store the game progress(how many times of wins and loses) and status(the starting position of “P” and "T" of the last time of game that has not yet completed)
 - Dynamic memory management
 
-a dynamic 2D array will be employed to store the game progress and status. As the number of times played of each round is uncertain(can be at least 3 and at most 5), such array will store the number of wins and loses. When the round terminates, the variables in this array will return to zero.
+a dynamic 2D array will be employed to store the game progress and status. As the number of times played of each round is uncertain(can be at least 2 and at most 3), such array will store the number of wins and loses. When the round terminates, the variables in this array will return to zero.
 - File input/output (e.g., for loading/saving game status)
 
-Progress of game is stored in "Temp.txt". When user execute file to play the game, he/she must include an argument: N (stand for New game) or L (stand for loaging game from previous status). If the argument is "N", then, "Temp.txt" will become an empty file through file IO. Otherwise, computer will read "Temp.txt" to load position of points and scores of player in the previous game.
+Progress of game is stored in "Temp.txt". When user execute file to play the game, he/she must include an argument: "New" (stand for New game) or "Log" (stand for loaging game from previous status). If the argument is "New", then, "Temp.txt" will become an empty file through file IO. Otherwise, computer will read "Temp.txt" to load position of points and scores of player in the previous game.
 - Program codes in multiple files
 
 Different .cpp files are used to show status of points on screen, calculating result of collision, describing the flow of the game.
