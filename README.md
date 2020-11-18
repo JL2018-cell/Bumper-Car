@@ -14,8 +14,8 @@ A text-based game that user is required to bump the target out of the arena by s
 - There will be at least 2 points in the square arena. One is labelled by "P", which is controlled by the player. The other are labelled by "T", which are the targets. For simplicity, we assume that these points are mass points (i.e. their shape and size could be neglected for the bumping procedure) and have same mass. 
 - The points' starting positions will be randomly selected for each time of game. Besides, the number of "T" is random as well for each time of game, it can be 1 or 2. 
 - If the number of "T" is 2, after "P" bumped a "T", the starting position for "P" to bump another "T" will be randomly selected again
-- The default direction is horizontally to the right. Player could set the direction by inputting "+ *number*" or "- *number*". E.g. "+ 90" means the direction will rotate counterclockwise by 90 degrees; "- 45" means the direction will rotate clockwise by 45 degrees. The number can be any integer from 0 to 360 (including the boundaries) Four degrees fault-tolerant interval is incorporated. 
-- Player could set the primary speed by "a *number*", the number can be any integer from 1 to 10(including the boundaries)
+- The default direction is horizontally to the right. Player could set the direction by inputting "+ *number*" or "- *number*". E.g. "+ 90" means the direction will rotate counterclockwise by 90 degrees; "- 45" means the direction will rotate clockwise by 45 degrees. The number can be any integer from 0 to 180 (including the boundaries) but -0 and -180 are not supported. Four degrees fault-tolerant interval is incorporated. 
+- Player could set the primary speed by "a *number*", the number can be any integer from 1 to 15(including the boundaries)
 - Player could set the difficulty levels at the beginning of each round by input "Easy" or "Medium" or "Hard", which will be discussed in detail later
 - the movement of "P" and "T" and their final positions will be displayed by employing *text-based animation*
  
