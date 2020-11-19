@@ -1,3 +1,6 @@
+#ifndef _SCREEN_H_
+#define _SCREEN_H_
+
 #include <clocale>
 #include <iostream>
 #include <stdio.h>
@@ -11,20 +14,17 @@
 using namespace std;
 
 class screen {
-      public:
-	int Columns = 80, row = 40;
-
-	void gotoxy(int x, int y);
-	void clrscr(void);
-	void set_conio_terminal_mode();
-	void trackRtoL(int i);
-	void plot(double f, int w, int t);
-	int kbhit();
-	int getch();
-	void arena();
-	void showcar(car A);
-	void showRule();
-	void saveGame(car bumper, int i);
-	int gcd(int a, int b);
-	 screen();
+    public:
+	int col = 80, row = 40;
+	void gotoxy(int x, int y);    //to place the cursor at column x and row y of the terminal
+	void showcar_p(car p);    //display the player's point P on the screen
+	void showcar_t(car t);    //display the target point T on the screen	
+	void clrscr();    //to clear the screen after each round of game	
+	void showrule();    //to show the game's guideline on the terminal 
+	void trackRtoL(int i);    
+	void plot(double k, double b, int x);    // to show the motion curve of cars	
+	void arena();    //print out the rectangle arena on the screen
+	
+	
 };
+#endif
