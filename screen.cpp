@@ -13,47 +13,64 @@
 using namespace std;
 
 
-struct termios orig_termios;
+
 void reset_terminal_mode()
 {
+	struct termios orig_termios;
 	tcsetattr(0, TCSANOW, &orig_termios);
 }
 
-void screen::showcar(car A)
+/* input car p, output nothing */
+/* display the player's point P on the screen */
+void screen::showcar_p(car p)
 {
-	gotoxy(A.getx(), A.gety());
-	cout << "A";
+	gotoxy(p.x, p.y);
+	printf("P");
 	fflush(stdout);
 }
 
+/* input car t, output nothing */ 
+/* display the player's point T on the screen */
+void screen::showcar_t(car t){
+	gotoxy(t.x,t.y);
+	printf("T");
+	fflush(stdout);
+}
+
+/* input car bumper and int i, output nothing */
+/* to save the game progress(the positions for p and t) in "Temp.txt" */
 void screen::saveGame(car bumper, int i)
-{				//Keep progress of the game.
-	//i=1: clear file before write.
-	//i=0: append content to file.
+{				
+	/* i=1: clear file before write */
+	/* i=0: append content to file */
 	if (i) {
 		fstream MyFile;
 		MyFile.open("Temp.txt", ios::out);
-		MyFile << bumper.getx();
+		MyFile << bumper.x;
 		MyFile << endl;
-		MyFile << bumper.gety();
+		MyFile << bumper.y;
 		MyFile << endl;
 		MyFile.close();
 	} else {
 		fstream MyFile;
 		MyFile.open("Temp.txt", ios::app);
-		MyFile << bumper.getx();
+		MyFile << bumper.x;
 		MyFile << endl;
-		MyFile << bumper.gety();
+		MyFile << bumper.y;
 		MyFile << endl;
 		MyFile.close();
 	}
 }
 
+/* input the x,y coordinates, no output */
+/* to place the cursor at column x and row y of the terminal */
 void screen::gotoxy(int x, int y)
 {
 	printf("%c[%d;%df", 0x1B, y, x);
 }
 
+/* no input, no output */
+/* to clear the screen after each time of game */
 void screen::clrscr(void)
 {
 
@@ -63,38 +80,40 @@ void screen::clrscr(void)
 
 }
 
-
+/* no input, no output */
+/* to show the game's guideline on the terminal */
 void screen::showRule()
 {
 	this->gotoxy(83, 3);
-	cout << "Game Rule:";
+	printf("Game Rules:");
 	this->gotoxy(83, 4);
-	cout << "Random positions friction";
+	printf("Bump the target out of the arena by setting the bumping direction and primary speed");
 	this->gotoxy(83, 5);
-	cout << "Random collided speed direction";
+	printf("Two points in the arena, \"P\" is controlled by you, \"T\" is the target");
 	this->gotoxy(83, 6);
-	cout << "----------";
+	printf("Set the direction by inputting \"+ number\" or \"- number\", the number can be from 0 to 180 inclusive (but -0 and -180 are not supported)");
 	this->gotoxy(83, 7);
-	cout << "Press \"q\":";
+	printf("\"+\" means rotate counterclockwise, \"-\" means rotate clockwise");
 	this->gotoxy(83, 8);
-	cout << "Turn pointer anti-clockwise.";
+	printf("Set the primary speed by \"a number\", the number can be any integer from 1 to 15(inclusive)");
 	this->gotoxy(83, 9);
-	cout << "Press \"z\":";
+	printf("Only the case T is bumped out of the arena and P remains in the arena will be regarded as WIN");
 	this->gotoxy(83, 10);
-	cout << "Turn pointer anti-clockwise.";
+	printf("Three rounds of game in total, WIN for at least 2 rounds is regarded success");
 	this->gotoxy(83, 11);
-	cout << "Press \"a\":";
+	printf("Useful Commands:");
 	this->gotoxy(83, 12);
-	cout << "Increase speed by 1 unit.";
+	printf("\"Save\": save the file containing the current game status");
 	this->gotoxy(83, 13);
-	cout << "Press \"x\" twice:";
+	printf("\"Log\": restore a saved game, return to the saved status");
 	this->gotoxy(83, 14);
-	cout << "Exit and save.";
+	printf("\"Quit\": end the game");
 	this->gotoxy(83, 15);
-	cout << "Press \"s\":";
-	this->gotoxy(83, 16);
-	cout << "To start";
+	printf("\"New\": start a new round");
+	
 }
+
+/* no input, no output */
 
 void screen::set_conio_terminal_mode()
 {
@@ -105,7 +124,7 @@ void screen::set_conio_terminal_mode()
 	memcpy(&new_termios, &orig_termios, sizeof(new_termios));
 
 	/* register cleanup handler, and set the new terminal mode */
-	atexit(reset_terminal_mode);
+	atexit(reset_terminal_mode());
 	cfmakeraw(&new_termios);
 	tcsetattr(0, TCSANOW, &new_termios);
 }
