@@ -7,9 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/select.h>
-#include <termios.h>
 #include <math.h>
+#include "car.h"
 #include <fstream>
 using namespace std;
 
@@ -21,8 +20,8 @@ class screen {
 	void showcar_t(car t);    //display the target point T on the screen	
 	void clrscr();    //to clear the screen after each round of game	
 	void showrule();    //to show the game's guideline on the terminal 
-	void trackRtoL(int i);    
-	void plot(double k, double b, int x);    // to show the motion curve of cars	
+	void plot_p_befcol(car & p, car & t);    //plot the motion curve of p before the moment of collision	
+	void plot_t_aftcol(car & p, car & t);   //plot the motion curve of q after the moment of collision
 	void arena();    //print out the rectangle arena on the screen
 	
 	
