@@ -28,7 +28,7 @@ A text-based game that user is required to bump the target out of the arena by s
 - File Input/Output: save positions of bumper cars in Temp.txt (Write file) and resume progress of game (Read file).
 - Program codes in multiple files: There is "Makefile" compiling "bumper.cpp", "car.cpp", "car.h", "screen.cpp", "screen.h" into an executable: "bumper".
 - <unistd.h>: Use function "sleep(useconds_t useconds)" to suspend the execution of a program for a specified period of time.
-- <clocale>: Change locale of C so as to affect the behaviour of input/output functions
+- <clocale> : Change locale of C so as to affect the behaviour of input/output functions
 - <sys/select.h>: define timeval structure.
 - <termios.h>: contains the definitions used by the terminal I/O interfaces (see the XBD specification, General Terminal Interface for the structures and names defined)
 
